@@ -7,13 +7,19 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependency directories
 node_modules
+
+# Build outputs
 dist
 dist-ssr
 *.local
-client/dist/
-/client
 
+# Frontend build
+frontend/dist/
+
+# Prevent stray client folder
+client/
 
 # Editor directories and files
 .vscode/*
@@ -25,4 +31,6 @@ client/dist/
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables
 .env
