@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -132,6 +132,12 @@ export default function AddToDo() {
         >
           {loading ? "Adding..." : "Add Todo"}
         </button>
+        <Link
+          to={`/browse/${currentUser._id}`}
+          className="px-4 py-2 bg-purple-700 text-center text-white rounded-md hover:bg-purple-600 transition"
+        >
+          See all todos
+        </Link>
       </form>
     </div>
   );
