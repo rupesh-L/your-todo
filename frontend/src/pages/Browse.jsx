@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, Link, useNavigate } from "react-router-dom";
 import TodoCard from "../components/TodoCard";
 import { toast } from "react-toastify";
 
@@ -15,6 +15,7 @@ export default function Browse() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showMore, setShowMore] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const cachedTodos = sessionStorage.getItem("todos");
@@ -35,6 +36,7 @@ export default function Browse() {
         if (!res.ok) {
           console.log(data.message);
           toast.error(data.message);
+          navigate("/");
           return;
         } else {
           setTodos(data.data);
