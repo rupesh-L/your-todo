@@ -27,7 +27,7 @@ export const addTodo = catchAsync(async (req, res, next) => {
 
 export const getTodo = catchAsync(async (req, res, next) => {
   if (req.query.userId) {
-    if (req.params.userId !== decoded.id) {
+    if (req.query.userId !== req.user.id) {
       return next(errorHandler(403, "Access forbidden"));
     }
   }
