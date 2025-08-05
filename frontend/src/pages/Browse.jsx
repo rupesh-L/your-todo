@@ -33,6 +33,7 @@ export default function Browse() {
 
         if (!res.ok) {
           console.log(data.message);
+          toast.error(data.message);
           return;
         } else {
           setTodos(data.data);
