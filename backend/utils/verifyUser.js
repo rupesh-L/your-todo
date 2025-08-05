@@ -11,11 +11,6 @@ export const verifyToken = (req, res, next) => {
       return next(errorHandler(401, "Unauthorized"));
     }
 
-    if (req.query.userId) {
-      if (req.params.userId !== decoded.id) {
-        return next(errorHandler(403, "Access forbidden"));
-      }
-    }
     req.user = decoded;
     next();
   });

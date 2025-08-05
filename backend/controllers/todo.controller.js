@@ -26,6 +26,11 @@ export const addTodo = catchAsync(async (req, res, next) => {
 });
 
 export const getTodo = catchAsync(async (req, res, next) => {
+  if (req.query.userId) {
+    if (req.params.userId !== decoded.id) {
+      return next(errorHandler(403, "Access forbidden"));
+    }
+  }
   const limit = parseInt(req.query.limit || 3);
   const skip = parseInt(req.query.skip || 0);
   const sortDirection = req.query.order === "asc" ? 1 : -1;
