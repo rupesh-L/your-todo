@@ -94,7 +94,7 @@ export const updateTodo = catchAsync(async (req, res, next) => {
         dueDate: new Date(req.body.dueDate),
       },
     },
-    { new: true }
+    { runValidators: true, new: true }
   );
 
   res.status(200).json({
